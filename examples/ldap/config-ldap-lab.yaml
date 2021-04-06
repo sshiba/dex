@@ -1,0 +1,38 @@
+issuer: http://127.0.0.1:5556/dex
+storage:
+  type: sqlite3
+  config:
+    file: examples/dex.db
+web:
+  http: 0.0.0.0:5556
+
+connectors:
+- type: ldap
+  name: ITTESTSERVICES
+  id: ldap
+  config:
+    # LDAPS without certificate validation:
+    host: its-ad-ldap.atttest.com:636
+    insecureNoSSL: false
+    insecureSkipVerify: true
+    
+    bindDN: sx3394@testitservices.atttest.com
+    bindPW: $LDAP_BIND_PW
+
+    # usernamePrompt: Email Address
+    usernamePrompt: SSO Username
+
+    userSearch:
+      baseDN: dc=testitservices,dc=atttest,dc=com
+      filter: "(objectClass=person)"
+      username: cn
+      idAttr: cn
+      emailAttr: name
+      nameAttr: name
+
+staticClients:
+- id: example-app
+  redirectURIs:
+  - 'http://127.0.0.1:5555/callback'
+  name: 'Example App'
+  secret: ZXhhbXBsZS1hcHAtc2VjcmV0

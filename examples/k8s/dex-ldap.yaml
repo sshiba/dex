@@ -1,0 +1,191 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dex
+---
+# LDAP Binding Secrets
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ldap-bind
+  namespace: dex
+data:
+  ldap-bind-dn: c3gzMzk0QHRlc3RpdHNlcnZpY2VzLmF0dHRlc3QuY29tCg==
+  ldap-bind-pw: MmIwMDI2QVRUMSEK
+---
+# Dex Certificate
+apiVersion: v1
+kind: Secret
+metadata:
+  name: dex.example.com.tls
+  namespace: dex
+data:
+  tls.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURGekNDQWYrZ0F3SUJBZ0lVUUc1cm5YQ04xWEZWZ1Y1SjAxT3pyeUtjc1lBd0RRWUpLb1pJaHZjTkFRRUwKQlFBd0d6RVpNQmNHQTFVRUF3d1FhbUZ5ZG1sekxXTmhMV2x6YzNWbGNqQWVGdzB5TVRBeE1qa3hOVFUyTURaYQpGdzB5TVRBeU1EZ3hOVFUyTURaYU1Cc3hHVEFYQmdOVkJBTU1FR3BoY25acGN5MWpZUzFwYzNOMVpYSXdnZ0VpCk1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLQW9JQkFRRFAraHhQc3F2ZWRtTHRGMEl5SkU4VTFZWUEKdjhwMW5XbFAxcEFxVXBMWTFWcTlhaGRud3VmZitqUG10b0YrZjV3czExNjRBYytVbHpWeXQ2V2dTdlZHdG5DMApIc3Jic2krUHZNaDNDdFZPajNoL3ZONWE4RVNIRytDb1pPL2hIRXBjOWs5QkI0cVJOVEdTcit6N0JrV05xVHVzCmx2RllPeG52enZDYjhRSTVrejVWM0tKaVJFRHFTRW9vdzVsWUliVmpRb1BhajhvZnVsT1p3L0NUYmhnZndERngKNlQrUTNDM0hjRzJJclJ0RDd5ZVQ2ODRTNmpEQzA2Q1lnR2M5RmtpeVFoc2p1MjdJS3FXT3QxUEdjY1dLUFNuQQo0M29OZ2tUNkEwMHJmaTQ4SUNzcHBFd3hCZHo4RlBQbVRrTk1veUcxMVJNY1hBWWdnbUJrWGVSVkRnMnZBZ01CCkFBR2pVekJSTUIwR0ExVWREZ1FXQkJSSE5ZbFdBQWM0emNLSG4rTUZjNFVKUlVJT3FEQWZCZ05WSFNNRUdEQVcKZ0JSSE5ZbFdBQWM0emNLSG4rTUZjNFVKUlVJT3FEQVBCZ05WSFJNQkFmOEVCVEFEQVFIL01BMEdDU3FHU0liMwpEUUVCQ3dVQUE0SUJBUUFtU3N6WjRsQlROVzg4TEs3Q29lRGNVMFgvZld4cFJ0V2kzZVhtRnNzcVMrL3lNUzV3CnlzK240alBQWlFEWlpiamFHSGEwRERZdlRXRVd4OFU5RVRxUU1kKzRkUy8yRWl3dVRpRHIzRGltbkIxTnBHYmYKL0RpMnVGUVZYdDJSa29FWVRiVHNGSy9HazNFMjBsNzVlcGFzcHhyYytVYU90amRJbDFnL21MVnkzT2E4SzM5aAppQzMrbldkbW9rd0ltQ1hNSklxTFhzc0pxSks2WEVYQ3NkYVFycWZncDlHaWJNOFBjKzBSYmtjbW8ra3NyUHJqCnRycTIzZGI2V3RLcVhWT3BhL01UTVhibElIalVpZjdOcHpzRHBrajQ3MGp3TkROOVM2SUhqRVdaYVFDTWFncDgKSkZIN3ZNSXRHektxTERUanF1TURmdkh0dzQvVTF2bXRqUlpZCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+  tls.key: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcEFJQkFBS0NBUUVBei9vY1Q3S3IzblppN1JkQ01pUlBGTldHQUwvS2RaMXBUOWFRS2xLUzJOVmF2V29YClo4TG4zL296NXJhQmZuK2NMTmRldUFIUGxKYzFjcmVsb0VyMVJyWnd0QjdLMjdJdmo3eklkd3JWVG85NGY3emUKV3ZCRWh4dmdxR1R2NFJ4S1hQWlBRUWVLa1RVeGtxL3Mrd1pGamFrN3JKYnhXRHNaNzg3d20vRUNPWk0rVmR5aQpZa1JBNmtoS0tNT1pXQ0cxWTBLRDJvL0tIN3BUbWNQd2syNFlIOEF4Y2VrL2tOd3R4M0J0aUswYlErOG5rK3ZPCkV1b3d3dE9nbUlCblBSWklza0liSTd0dXlDcWxqcmRUeG5IRmlqMHB3T042RFlKRStnTk5LMzR1UENBckthUk0KTVFYYy9CVHo1azVEVEtNaHRkVVRIRndHSUlKZ1pGM2tWUTROcndJREFRQUJBb0lCQUVCT2JZS1hGRjFzN1pteApuMTR4cStJZFE1bm5zNG82YWQydDBsWER3blFaUkQxZEdHK1U3RzFzeDYrR3J2T1dNWXdMNjlXcGVhM1FNMDZOClNrRU43Rms1QUJBeGxUZnBHSnV4RzZyelJwRkwrMDVENzl6ZWZkSG81TVlzcjU5RFNCc0diZXNGa2Vya0w3ZlQKZmNzQVhYRTM2cU9xNkdVSG9UVnRIeWlZbEwrSUlMSkVjNCtYUEZYK21PeERyUkRLYUlUNUJpVjlLa3NpN2tPWgpGQlpqY2JCWGN3dXhTZzB1eERtNGhNaUdzaGRKcCszRW51bTdwd1hlVTdPcGFpRENGL2ljRkNlTlEvTVphU1AzClRGTU5zbGxRYm1UQWEvQWVqMXBVMm5BMEN1Y3lOa1ZNdk5sUmpEaTZxcGR5cDByb0JRQzYyakNaSGJHOGREY2kKZUc0VVFnRUNnWUVBOXNXTkRCdjB6dlFWY3NxcHdWWFVkanNTUnVBbXRSV3hna0MvVTcyVGVmdk93YXYzR2VMTQpXTWllcGs0SXkyQnF3RS9TakFydXZ1VmZPeE4rVTIvVG51QVAvNGN6NXo4YnRGbmpndFJTR0hMK1pacHdjTU5iCjJtcXNhQ3U4NnM2NnRHUXJtbnJuZUZtV0NWSFgwWk9FVVFtd0g0YlY0UjRpZmQ3RVRwSzRVUThDZ1lFQTE4RXAKYVZtdC9rYTJDZDFJN0hnTTJlV1JCUnVFclFuZURKZElibzNNeFU1Z1hUME1RQzJ5b2FYU1RXNXgyTnZKOGxjSwpwVEtaZ0puNTRvTlRrSDFkYjhacndaM3RLRk9ndWc2NFVwVnJ0ZVZpY2ppbi9IS0xmU1VRNVlxamdzRTNhTzUzCldtbzlEQko5cVYyZVlaVmFDbmtCdm1FN0xOczhJaVhvT0VRbE9XRUNnWUVBMmIyWVpoM28xZzh6T2JXdk1jT3QKRTZHdHo5SUs5Vyt0MERPWFhxbUJEbnBzaGlGWmlJTEJNbm5hMnYweDcxb2s5NG0zU3hCK2R2eG5HZlpxV2U3cgpPRjJXWUM4SlVqc3lFK0hZeU9EVmkzTTBHNnk1R0JhWTN0R1BUTitDODJEMEJ5WDMvM2dBOUFXQVNMcnBocWYyCmNaYnR5L09xbHRlRE1iTTFYZXRDTFdzQ2dZRUFrL3lTQXdqWUowa3BJNnI4a2ZYbUdxOHp3V1VXby9uWXJKbzMKdkZ6V3o1N3F5Z2xObGRmQ1pzM3VhZDRQaU1kNHhSaWUzS0RRV1QxRUFQSkRKeUJXTG96UzdJTCtZR0s4SStKawoyNEJSMlBuMWhKTUg1a2hMRlJPUGUyS1V0T01DdHA2YWp4Ry92Y0FSSVZKdGlGR0E2UjRHN0NhVkNEZDRENVFnCnJEZFJzUUVDZ1lBbVpUWHN4NUJVVURrR2FlT1hObExqOVpYVEdWUURJcm82VVo0dDRzWitjWjhQazFvRW5xR3UKSkk0aWtua1JUWDR6bEVEWTlUbVZpaitiVSt2cFZkd2pWN3lnb0RBN1dBWXV2OTFkSWppN1ZYUEJJS2RKbmttVgpVbkZaYytuNnhZL0lrWkdoYisraWJkeTl6ai9zUjFkYUNZeUhSdnkxaDRzNCtIbzQxTTU5OFE9PQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo=
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: dex
+  name: dex
+  namespace: dex
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dex
+  template:
+    metadata:
+      labels:
+        app: dex
+    spec:
+      serviceAccountName: dex # This is created below
+      containers:
+      - image: dexidp/dex:v2.27.0 #or quay.io/dexidp/dex:v2.26.0
+        name: dex
+        command: ["/usr/local/bin/dex", "serve", "/etc/dex/cfg/config.yaml"]
+
+        ports:
+        - name: https
+          containerPort: 5556
+
+        volumeMounts:
+        - name: config
+          mountPath: /etc/dex/cfg
+        - name: tls
+          mountPath: /etc/dex/tls
+
+        env:
+        - name: LDAP_BIND_DN
+          valueFrom:
+            secretKeyRef:
+              name: ldap-bind
+              key: ldap-bind-dn
+        - name: LDAP_BIND_PW
+          valueFrom:
+            secretKeyRef:
+              name: ldap-bind
+              key: ldap-bind-pw
+
+        # readinessProbe:
+        #   httpGet:
+        #     path: /healthz
+        #     port: 5556
+      volumes:
+      - name: config
+        configMap:
+          name: dex
+          items:
+          - key: config.yaml
+            path: config.yaml
+      - name: tls
+        secret:
+          secretName: dex.example.com.tls
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: dex
+  namespace: dex
+data:
+  config.yaml: |
+    issuer: https://dex.example.com:32000
+    storage:
+      type: kubernetes
+      config:
+        inCluster: true
+    web:
+      https: 0.0.0.0:5556
+      tlsCert: /etc/dex/tls/tls.crt
+      tlsKey: /etc/dex/tls/tls.key
+    connectors:
+    - type: ldap
+      name: ITTESTSERVICES
+      id: ldap
+      config:
+        # LDAPS without certificate validation
+        host: its-ad-ldap.atttest.com:636
+        insecureNoSSL: false
+        insecureSkipVerify: true
+
+        bindDN: sx3394@testitservices.atttest.com
+        bindPW: 2b0026ATT1!
+
+        # usernamePrompt: Email Address
+        usernamePrompt: SSO Username
+
+        userSearch:
+          baseDN: dc=testitservices,dc=atttest,dc=com
+          filter: "(objectClass=person)"
+          username: cn
+          idAttr: cn
+          emailAttr: name
+          nameAttr: name
+    oauth2:
+      skipApprovalScreen: true
+
+    staticClients:
+    - id: example-app
+      redirectURIs:
+      - 'http://127.0.0.1:5555/callback'
+      name: 'Example App'
+      secret: ZXhhbXBsZS1hcHAtc2VjcmV0
+
+    enablePasswordDB: true
+    staticPasswords:
+    - email: "admin@example.com"
+      # bcrypt hash of the string "password"
+      hash: "$2a$10$2b2cU8CPhOTaGrs1HRQuAueS7JTT5ZHsHSzYiFPm1leZck7Mc8T4W"
+      username: "admin"
+      userID: "08a8684b-db88-4b73-90a9-3cd1661f5466"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dex
+  namespace: dex
+spec:
+  type: NodePort
+  ports:
+  - name: dex
+    port: 5556
+    protocol: TCP
+    targetPort: 5556
+    nodePort: 32000
+  selector:
+    app: dex
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app: dex
+  name: dex
+  namespace: dex
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: dex
+rules:
+- apiGroups: ["dex.coreos.com"] # API group created by dex
+  resources: ["*"]
+  verbs: ["*"]
+- apiGroups: ["apiextensions.k8s.io"]
+  resources: ["customresourcedefinitions"]
+  verbs: ["create"] # To manage its own resources, dex must be able to create customresourcedefinitions
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: dex
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: dex
+subjects:
+- kind: ServiceAccount
+  name: dex           # Service account assigned to the dex pod, created above
+  namespace: dex  # The namespace dex is running in
