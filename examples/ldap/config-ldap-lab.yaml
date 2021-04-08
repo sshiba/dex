@@ -16,7 +16,7 @@ connectors:
     insecureNoSSL: false
     insecureSkipVerify: true
     
-    bindDN: sx3394@testitservices.atttest.com
+    bindDN: <your ldap instance username>
     bindPW: $LDAP_BIND_PW
 
     # usernamePrompt: Email Address
