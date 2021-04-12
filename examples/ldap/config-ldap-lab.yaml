@@ -1,4 +1,6 @@
-issuer: http://127.0.0.1:5556/dex
+# issuer: http://127.0.0.1:5556/dex
+# issuer: http://32.67.142.40:5556/dex
+issuer: http://bsr2r12c009.bsr23a.cci.att.com:5556/dex
 storage:
   type: sqlite3
   config:
@@ -16,7 +18,7 @@ connectors:
     insecureNoSSL: false
     insecureSkipVerify: true
     
-    bindDN: <your ldap instance username>
+    bindDN: attuid@testitservices.atttest.com
     bindPW: $LDAP_BIND_PW
 
     # usernamePrompt: Email Address
@@ -33,6 +35,8 @@ connectors:
 staticClients:
 - id: example-app
   redirectURIs:
-  - 'http://127.0.0.1:5555/callback'
+  # - 'http://127.0.0.1:5555/callback'
+  # - 'http://32.67.142.40:5555/callback'
+  - 'http://bsr2r12c009.bsr23a.cci.att.com:5555/callback'
   name: 'Example App'
   secret: ZXhhbXBsZS1hcHAtc2VjcmV0
